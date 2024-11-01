@@ -1,1 +1,1 @@
-export * from './arriwdown-icon';
+export * from './arrowdown-icon';
