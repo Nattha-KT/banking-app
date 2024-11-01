@@ -1,1 +1,2 @@
-export * from './color.variant';
+export * from './icons';
+export * from './variance';
