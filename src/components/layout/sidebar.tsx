@@ -26,7 +26,7 @@ export default function Sidebar({ user }: SiderbarProps) {
             alt="Horizon logo"
             className="size-[46px] max-xl:size-14"
           />
-          <h1 className="sidebar-logo">B-Service</h1>
+          <h1 className="sidebar-logo">BANK APP</h1>
         </Link>
 
         {sidebarLinks.map((item) => {

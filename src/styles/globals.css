@@ -434,7 +434,7 @@
   }
 
   .sidebar-logo {
-    @apply 2xl:text-26 text-[24px] font-bold text-gray-700 max-xl:hidden;
+    @apply 2xl:text-[26px] text-[16px] font-bold text-gray-700 max-xl:hidden;
   }
 
   .sidebar-link {
@@ -442,6 +442,6 @@
   }
 
   .sidebar-label {
-    @apply text-16 font-semibold text-black-2 max-xl:hidden;
+    @apply 2xl:text-[16px] text-[12px] font-semibold text-gray-600 max-xl:hidden;
   }
 }
