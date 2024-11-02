@@ -27,16 +27,16 @@ Built with Next.js, **Banking App** is a financial SaaS platform that connects t
 
 ## 📚 Learning Resources & Inspiration
 
-This project was inspired by robust SaaS architecture principles and the power of modern web technologies. Built with a comprehensive tech stack—Next.js, TypeScript, Appwrite, Plaid, Dwolla, React Hook Form, Zod, TailwindCSS, Chart.js, and ShadCN—it draws on advanced authentication, real-time bank integrations, and user-friendly financial management features.
+This project was inspired by robust SaaS architecture principles and the power of modern web technologies. Built with a comprehensive modern tech stack it draws on advanced authentication, real-time bank integrations, and user-friendly financial management features.
 
-🚀 Key features influenced by these resources include:
+###### 🚀 Key features influenced by these resources include:
 
-- **Secure Authentication**: Server-side rendering (SSR) with secure validation and authorization.
-- **Bank Integration**: Plaid for linking multiple bank accounts, offering a seamless financial overview and balance tracking.
-- **User Dashboard**: A home page displaying total balances, recent transactions, categorized expenses, and more.
-- **Transaction History**: A filterable, paginated history across all connected banks.
-- **Real-Time Updates**: Instant reflection of new bank connections across the application.
-- **Funds Transfer**: Secure fund transfers via Dwolla, simplifying inter-account transactions.
+- `Secure Authentication`: Server-side rendering (SSR) with secure validation and authorization.
+- `Bank Integration`: Plaid for linking multiple bank accounts, offering a seamless financial overview and balance tracking.
+- `User Dashboard`: A home page displaying total balances, recent transactions, categorized expenses, and more.
+- `Transaction History`: A filterable, paginated history across all connected banks.
+- `Real-Time Updates`: Instant reflection of new bank connections across the application.
+- `Funds Transfer`: Secure fund transfers via Dwolla, simplifying inter-account transactions.
 
 With a focus on responsiveness, reusability, and clean architecture, this project benefits from insights into designing scalable, high-performing applications for the finance industry.
 

@@ -118,7 +118,7 @@ const config: Config = {
       },
       backgroundImage: {
         'bank-gradient': 'linear-gradient(90deg, #0179FE 0%, #4893FF 100%)',
-        'gradient-mesh': "url('/icons/gradient-mesh.svg')",
+        'gradient-mesh': "url('/images/minan.jpg')",
         'bank-green-gradient':
           'linear-gradient(90deg, #39cccc 0%, #79cccc 100%)',
       },

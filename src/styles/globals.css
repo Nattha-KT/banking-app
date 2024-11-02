@@ -240,11 +240,11 @@
   }
 
   .profile-details {
-    @apply flex flex-col pt-24;
+    @apply flex flex-col pt-20;
   }
 
   .profile-name {
-    @apply text-24 font-semibold text-gray-900;
+    @apply text-20 font-semibold text-teal-950;
   }
 
   .profile-email {
@@ -291,15 +291,15 @@
 
   /* Bank Card */
   .bank-card {
-    @apply relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px] border border-white bg-bank-gradient shadow-creditCard backdrop-blur-[6px];
+    @apply relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px] border border-white bg-bank-green-gradient shadow-creditCard backdrop-blur-[6px];
   }
 
   .bank-card_content {
-    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-700 bg-bank-gradient px-5 pb-4 pt-5;
+    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-700 bg-bank-green-gradient px-5 pb-4 pt-5;
   }
 
   .bank-card_icon {
-    @apply flex size-full flex-1 flex-col items-end justify-between rounded-r-[20px] bg-bank-gradient bg-cover bg-center bg-no-repeat py-5 pr-5;
+    @apply flex size-full flex-1 flex-col items-end justify-between rounded-r-[20px] bg-bank-green-gradient bg-cover bg-center bg-no-repeat py-5 pr-5;
   }
 
   /* Bank Info */
@@ -322,7 +322,7 @@
   }
 
   .mobilenav-sheet_close {
-    @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-60;
+    @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-[90%];
   }
 
   /* PlaidLink */
@@ -394,8 +394,8 @@
   }
 
   /* Root Layout */
-  .root-layout {
-    @apply flex h-16 items-center justify-between p-5 shadow-creditCard sm:p-8 md:hidden;
+  .navbar-root-layout {
+    @apply flex h-16 items-center justify-between p-5 sm:p-8 md:hidden rounded-2xl shadow-md bg-teal-300/30;
   }
 
   /* Bank Info */
@@ -434,7 +434,7 @@
   }
 
   .sidebar-logo {
-    @apply 2xl:text-[26px] text-[16px] font-bold text-gray-700 max-xl:hidden;
+    @apply 2xl:text-[22px] text-[16px] font-bold text-teal-900 max-xl:hidden;
   }
 
   .sidebar-link {
@@ -442,6 +442,6 @@
   }
 
   .sidebar-label {
-    @apply 2xl:text-[16px] text-[12px] font-semibold text-gray-600 max-xl:hidden;
+    @apply 2xl:text-[16px] text-[12px] font-medium text-gray-600 max-xl:hidden;
   }
 }

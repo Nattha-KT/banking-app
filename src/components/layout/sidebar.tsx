@@ -21,10 +21,10 @@ export default function Sidebar({ user }: SiderbarProps) {
         >
           <Image
             src="/icons/bank-logo.svg"
-            width={34}
-            height={34}
+            width={30}
+            height={30}
             alt="Horizon logo"
-            className="size-[46px] max-xl:size-14"
+            className="size-[42px] max-xl:size-12"
           />
           <h1 className="sidebar-logo">BANK APP</h1>
         </Link>

@@ -29,7 +29,10 @@ export default function MobileNav({ user }: MobileNavProps) {
             className="cursor-pointer"
           />
         </SheetTrigger>
-        <SheetContent side="left" className="border-none bg-white">
+        <SheetContent
+          side="left"
+          className="max-w-[300px] border-none bg-white"
+        >
           <SheetTitle>
             {' '}
             <Link
@@ -78,7 +81,7 @@ export default function MobileNav({ user }: MobileNavProps) {
                           })}
                         />
                         <p
-                          className={cn('text-16 font-semibold text-black-2', {
+                          className={cn('text-16 font-medium text-black-2', {
                             'text-white': isActive,
                           })}
                         >

@@ -2,7 +2,11 @@ import { HeaderBox } from '@/components';
 import { BalanceBox } from '@/components/feature';
 
 export default function HomePage() {
-  const loggedIn = { firstName: 'Aon' };
+  const loggedIn = {
+    firstName: 'Natthaphon',
+    lastName: 'Kantha',
+    email: 'contact@gmail.com',
+  };
   return (
     <section className="home">
       <div className="home-content">
@@ -18,6 +22,11 @@ export default function HomePage() {
           totalCurrentBalance={1250.12}
         />
       </div>
+      {/* <ProfileSide
+        user={loggedIn}
+        transactions={[]}
+        banks={[{ currentBalance: 223.5 }, { currentBalance: 313.5 }]}
+      /> */}
     </section>
   );
 }
