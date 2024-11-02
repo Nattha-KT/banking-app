@@ -1,10 +1,10 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cn } from "@/libs";
-import { ButtonVariantProps, buttonVariants } from "./button.variant";
+'use client';
+import { cn } from '@/libs';
+import { Slot } from '@radix-ui/react-slot';
+import * as React from 'react';
+import { ButtonVariantProps, buttonVariants } from './button.variant';
 
-
-export type ButtonProps = React.ComponentPropsWithoutRef<"button"> & {
+export type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
   asChild?: boolean;
   backgroundColor?: string;
   loading?: boolean;
@@ -12,7 +12,7 @@ export type ButtonProps = React.ComponentPropsWithoutRef<"button"> & {
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+    const Comp = asChild ? Slot : 'button';
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
@@ -20,8 +20,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  }
+  },
 );
-Button.displayName = "Button";
+Button.displayName = 'Button';
 
 export { Button, buttonVariants };

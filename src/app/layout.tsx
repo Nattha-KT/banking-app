@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: 'Banking App',
   description: 'Modern banking platform',
   icons: {
-    icon: '/icons/bank-cowboy.svg',
+    icon: '/icons/bank-logo.svg',
   },
 };
 
