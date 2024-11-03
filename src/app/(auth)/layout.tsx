@@ -1,7 +1,7 @@
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main>{children}</main>;
+  return <div id="root">{children}</div>;
 }

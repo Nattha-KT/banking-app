@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   const loggedIn = { firstName: 'Natthphon', lastName: 'KT' };
   return (
-    <main className="flex h-screen w-full font-inter">
+    <main id="root" className="flex h-screen w-full font-inter">
       <Sidebar user={loggedIn} />
 
       <div className="flex size-full flex-col">

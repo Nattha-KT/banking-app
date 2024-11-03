@@ -361,11 +361,11 @@
   }
 
   .form-btn {
-    @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
+    @apply text-16 rounded-lg border border-teal-500 bg-bank-gradient font-semibold text-white shadow-form;
   }
 
   .form-link {
-    @apply text-14 cursor-pointer font-medium text-bankGradient;
+    @apply text-14 cursor-pointer font-medium text-teal-500;
   }
 
   /* Payment Transfer */
