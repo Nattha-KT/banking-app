@@ -6,11 +6,11 @@ import {
   Input,
 } from '../../ui';
 
-import { AuthFormSchema, AuthFormValues } from '@/schema';
+import { AuthFormValues } from '@/schema';
 import { Control, FieldPath } from 'react-hook-form';
 
 export type InputFormFieldProps = {
-  control: Control<AuthFormSchema>;
+  control: Control<AuthFormValues>;
   name: FieldPath<AuthFormValues>;
   label: string;
   placeholder: string;

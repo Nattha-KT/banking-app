@@ -14,13 +14,11 @@ export const getAuthFormSchema = (type: string) =>
       type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
     dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
     ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    // both
+    // ==== sign up && sign in ======
     email: z.string().email(),
     password: z.string().min(8),
   });
 
-export type AuthFormSchema = UseFormReturn<
-  z.infer<ReturnType<typeof getAuthFormSchema>>
->;
-
 export type AuthFormValues = z.infer<ReturnType<typeof getAuthFormSchema>>;
+
+export type AuthFormSchema = UseFormReturn<AuthFormValues>;

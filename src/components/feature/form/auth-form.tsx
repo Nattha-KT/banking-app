@@ -1,20 +1,21 @@
 'use client';
-import { InputFormField } from '@/components/shared';
 import { Form } from '@/libs';
-import { AuthFormSchema } from '@/schema';
 import Image from 'next/image';
 import Link from 'next/link';
 // import { useRouter } from 'next/router';
 import { useAuthHook } from '@/hooks';
 import { useState } from 'react';
-import { Button } from '../../';
+import { Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui';
+import { InputFormField } from '@/components/shared';
+import { AuthFormValues } from '@/schema';
 
 export default function AuthForm({ type }: { type: string }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { authForm: form } = useAuthHook(type);
 
-  const onSubmit = async (data: AuthFormSchema) => {
+  const onSubmit = async (data: AuthFormValues) => {
     setIsLoading(true);
     console.log(data);
     setUser(null);
@@ -128,10 +129,14 @@ export default function AuthForm({ type }: { type: string }) {
               />
 
               <div className="flex flex-col gap-4">
-                <Button type="submit" disabled={isLoading} className="form-btn">
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="form-btn hover:bg-teal-500"
+                >
                   {isLoading ? (
                     <>
-                      {/* <Loader2 size={20} className="animate-spin" /> &nbsp; */}
+                      <Loader2 size={20} className="animate-spin" /> &nbsp;
                       Loading...
                     </>
                   ) : type === 'sign-in' ? (

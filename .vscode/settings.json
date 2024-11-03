@@ -1,24 +1,24 @@
 {
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit",
-      "source.organizeImports": "explicit",
-      "source.fixAll.format": "explicit"
-    },
-  
-    "editor.formatOnSave": true, // Tell VSCode to format files on save
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "tailwindCSS.experimental.classRegex": [
-      "cva\\(([^)]*)\\)",
-      "[\"'`]([^\"'`]*).*?[\"'`]",
-      "cn\\(([^)]*)\\)",
-      "(?:'|\"|`)([^']*)(?:'|\"|`)"
-    ],
-    "tailwindCSS.emmetCompletions": true,
-    "editor.quickSuggestions": {
-      "strings": true
-    },
-    "files.associations": {
-      "*.mdx": "markdown"
-    }
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    // "source.organizeImports": "false",
+    "source.fixAll.format": "explicit"
+  },
+
+  "editor.formatOnSave": true, // Tell VSCode to format files on save
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "tailwindCSS.experimental.classRegex": [
+    "cva\\(([^)]*)\\)",
+    "[\"'`]([^\"'`]*).*?[\"'`]",
+    "cn\\(([^)]*)\\)",
+    "(?:'|\"|`)([^']*)(?:'|\"|`)"
+  ],
+  "tailwindCSS.emmetCompletions": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "files.associations": {
+    "*.mdx": "markdown"
   }
+}
