@@ -1,3 +1,3 @@
-export default function PatmentPage() {
+export default async function PatmentPage() {
   return <div>PatmentPage</div>;
 }

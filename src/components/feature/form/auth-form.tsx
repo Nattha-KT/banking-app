@@ -1,5 +1,5 @@
 'use client';
-import { Form } from '@/libs';
+import { Form, signIn, signUp } from '@/libs';
 import Image from 'next/image';
 import Link from 'next/link';
 // import { useRouter } from 'next/router';
@@ -10,16 +10,38 @@ import { Button } from '@/components/ui';
 import { InputFormField } from '@/components/shared';
 import { AuthFormValues } from '@/schema';
 import { FieldPath } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 
 export default function AuthForm({ type }: { type: AuthFormType }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { authForm: form } = useAuthHook(type);
+  const router = useRouter();
 
   const onSubmit = async (data: AuthFormValues<typeof type>) => {
     setIsLoading(true);
-    console.log(data);
-    setUser(null);
+    try {
+      if (type === 'sign-up') {
+        const userData = {
+          ...(data as AuthFormValues<'sign-up'>),
+        };
+        const newUser = await signUp(userData);
+        setUser(newUser);
+      }
+
+      if (type === 'sign-in') {
+        const response = await signIn({
+          email: data.email,
+          password: data.password,
+        });
+
+        if (response) router.push('/');
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

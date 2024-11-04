@@ -1,7 +1,7 @@
 import { HeaderBox } from '@/components';
 import { BalanceBox } from '@/components/feature';
 
-export default function HomePage() {
+export default async function HomePage() {
   const loggedIn = {
     firstName: 'Natthaphon',
     lastName: 'Kantha',

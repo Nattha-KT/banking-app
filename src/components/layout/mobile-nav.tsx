@@ -20,7 +20,7 @@ export default function MobileNav({ user }: MobileNavProps) {
   return (
     <section className="w-fulll max-w-[264px]">
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger className="rounded-3xl p-1 hover:bg-teal-200">
           <Image
             src="/icons/hamburger.svg"
             width={30}

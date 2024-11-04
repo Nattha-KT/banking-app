@@ -1,7 +1,7 @@
 import { MobileNav, Sidebar } from '@/components';
 import Image from 'next/image';
 import Link from 'next/link';
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
