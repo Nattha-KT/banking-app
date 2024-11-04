@@ -3,16 +3,25 @@ import { AuthFormValues, getAuthFormSchema } from '@/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-export const defaultAuthFormValue = {} satisfies Partial<AuthFormValues>;
+export const defaultAuthFormValue: Partial<AuthFormValues<'sign-up'>> = {
+  email: '',
+  password: '',
+  firstName: '',
+  lastName: '',
+  address1: '',
+  city: '',
+  state: '',
+  postalCode: '',
+  dateOfBirth: '',
+  ssn: '',
+};
 
-export function useAuthHook(type: string) {
+export function useAuthHook(type: AuthFormType) {
   const formSchema = getAuthFormSchema(type);
-  const authForm = useForm<AuthFormValues>({
+  const authForm = useForm<AuthFormValues<typeof type>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       ...defaultAuthFormValue,
-      email: '',
-      password: '',
     },
     mode: 'onSubmit',
   });

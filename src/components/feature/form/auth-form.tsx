@@ -9,13 +9,14 @@ import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { InputFormField } from '@/components/shared';
 import { AuthFormValues } from '@/schema';
+import { FieldPath } from 'react-hook-form';
 
-export default function AuthForm({ type }: { type: string }) {
+export default function AuthForm({ type }: { type: AuthFormType }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { authForm: form } = useAuthHook(type);
 
-  const onSubmit = async (data: AuthFormValues) => {
+  const onSubmit = async (data: AuthFormValues<typeof type>) => {
     setIsLoading(true);
     console.log(data);
     setUser(null);
@@ -59,39 +60,33 @@ export default function AuthForm({ type }: { type: string }) {
                 <>
                   <div className="flex gap-4">
                     <InputFormField
-                      control={form.control}
                       name="firstName"
                       label="First Name"
                       placeholder="Enter your first name"
                     />
                     <InputFormField
-                      control={form.control}
                       name="lastName"
                       label="Last Name"
                       placeholder="Enter your first name"
                     />
                   </div>
                   <InputFormField
-                    control={form.control}
                     name="address1"
                     label="Address"
                     placeholder="Enter your specific address"
                   />
                   <InputFormField
-                    control={form.control}
-                    name="city"
+                    name={'city' as FieldPath<AuthFormValues>}
                     label="City"
                     placeholder="Enter your city"
                   />
                   <div className="flex gap-4">
                     <InputFormField
-                      control={form.control}
                       name="state"
                       label="State"
                       placeholder="Example: NY"
                     />
                     <InputFormField
-                      control={form.control}
                       name="postalCode"
                       label="Postal Code"
                       placeholder="Example: 11101"
@@ -99,13 +94,11 @@ export default function AuthForm({ type }: { type: string }) {
                   </div>
                   <div className="flex gap-4">
                     <InputFormField
-                      control={form.control}
                       name="dateOfBirth"
                       label="Date of Birth"
                       placeholder="YYYY-MM-DD"
                     />
                     <InputFormField
-                      control={form.control}
                       name="ssn"
                       label="SSN"
                       placeholder="Example: 1234"
@@ -115,14 +108,12 @@ export default function AuthForm({ type }: { type: string }) {
               )}
 
               <InputFormField
-                control={form.control}
                 name="email"
                 label="Email"
                 placeholder="Enter your email"
               />
 
               <InputFormField
-                control={form.control}
                 name="password"
                 label="Password"
                 placeholder="Enter your password"

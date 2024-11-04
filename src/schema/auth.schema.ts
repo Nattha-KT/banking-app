@@ -1,24 +1,36 @@
 import { UseFormReturn } from 'react-hook-form';
 import { z } from 'zod';
 
-export const getAuthFormSchema = (type: string) =>
-  z.object({
-    // ==== sign up ======
-    firstName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    lastName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    address1: type === 'sign-in' ? z.string().optional() : z.string().max(50),
-    city: type === 'sign-in' ? z.string().optional() : z.string().max(50),
-    state:
-      type === 'sign-in' ? z.string().optional() : z.string().min(2).max(2),
-    postalCode:
-      type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
-    dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    // ==== sign up && sign in ======
-    email: z.string().email(),
-    password: z.string().min(8),
-  });
+const baseAuthSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(8),
+});
 
-export type AuthFormValues = z.infer<ReturnType<typeof getAuthFormSchema>>;
+const signUpFields = z.object({
+  firstName: z.string().min(3),
+  lastName: z.string().min(3),
+  address1: z.string().max(50),
+  city: z.string().max(50),
+  state: z.string().min(2).max(2),
+  postalCode: z.string().min(3).max(6),
+  dateOfBirth: z.string().min(3),
+  ssn: z.string().min(3),
+});
 
-export type AuthFormSchema = UseFormReturn<AuthFormValues>;
+const signUpSchema = baseAuthSchema.merge(signUpFields);
+
+export const getAuthFormSchema = (type: AuthFormType) => {
+  return type === 'sign-up' ? signUpSchema : baseAuthSchema;
+};
+
+export type AuthFormValues<T extends AuthFormType = 'sign-in'> =
+  T extends 'sign-up'
+    ? z.infer<typeof signUpSchema>
+    : z.infer<typeof baseAuthSchema>;
+
+export type AuthFormSchema<T extends AuthFormType = 'sign-in'> = UseFormReturn<
+  AuthFormValues<T>
+>;
+
+// export type AuthFormSchema = UseFormReturn<AuthFormValues>;
+// export type AuthFormValues = z.infer<ReturnType<typeof getAuthFormSchema>>;

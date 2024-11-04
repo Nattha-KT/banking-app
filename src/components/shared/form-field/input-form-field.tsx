@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   FormControl,
   FormField,
@@ -5,29 +6,27 @@ import {
   FormMessage,
   Input,
 } from '../../ui';
-
 import { AuthFormValues } from '@/schema';
-import { Control, FieldPath } from 'react-hook-form';
+import { FieldPath, useFormContext } from 'react-hook-form';
 
-export type InputFormFieldProps = {
-  control: Control<AuthFormValues>;
-  name: FieldPath<AuthFormValues>;
+export interface InputFormFieldProps<T extends AuthFormType> {
+  name: FieldPath<AuthFormValues<T>>;
   label: string;
   placeholder: string;
-};
+  className?: string;
+}
 
-export function InputFormField({
-  control,
-  name,
-  label,
-  placeholder,
-}: InputFormFieldProps) {
+export const InputFormField = React.memo(function InputFormField<
+  T extends AuthFormType,
+>({ name, label, placeholder, className = '' }: InputFormFieldProps<T>) {
+  const form = useFormContext<AuthFormValues<T>>();
+
   return (
     <FormField
-      control={control}
+      control={form.control}
       name={name}
       render={({ field }) => (
-        <div className="form-item">
+        <div className={`form-item ${className}`}>
           <FormLabel className="form-label">{label}</FormLabel>
           <div className="flex w-full flex-col">
             <FormControl>
@@ -44,4 +43,6 @@ export function InputFormField({
       )}
     />
   );
-}
+});
+
+InputFormField.displayName = 'InputFormField';
