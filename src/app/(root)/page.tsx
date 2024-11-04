@@ -1,12 +1,9 @@
 import { HeaderBox } from '@/components';
 import { BalanceBox } from '@/components/feature';
+import { getLoggedInUser } from '@/libs';
 
 export default async function HomePage() {
-  const loggedIn = {
-    firstName: 'Natthaphon',
-    lastName: 'Kantha',
-    email: 'contact@gmail.com',
-  };
+  const loggedIn = await getLoggedInUser();
   return (
     <section className="home">
       <div className="home-content">

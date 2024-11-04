@@ -62,3 +62,17 @@ export async function getLoggedInUser() {
     return null;
   }
 }
+
+export const logoutAccount = async () => {
+  try {
+    const { account } = await createSessionClient();
+
+    await cookies().then((cookies) => {
+      cookies.delete('appwrite-session');
+    });
+
+    await account.deleteSession('current');
+  } catch {
+    return null;
+  }
+};
