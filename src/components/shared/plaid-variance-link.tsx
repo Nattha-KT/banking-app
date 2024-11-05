@@ -23,10 +23,7 @@ export default function PlaidLink({ user, variant }: PlaidLinkProps) {
     };
 
     getLinkToken();
-  }, [
-    user,
-    // router
-  ]);
+  }, [user]);
 
   const onSuccess = useCallback<PlaidLinkOnSuccess>(
     async (public_token: string) => {
@@ -36,7 +33,7 @@ export default function PlaidLink({ user, variant }: PlaidLinkProps) {
       });
       router.push('/');
     },
-    [user],
+    [user, router],
   );
 
   const config: PlaidLinkOptions = {
