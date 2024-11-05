@@ -4,13 +4,15 @@ import { getLoggedInUser } from '@/libs';
 
 export default async function HomePage() {
   const loggedIn = await getLoggedInUser();
+  if (!loggedIn) return null;
+
   return (
     <section className="home">
       <div className="home-content">
         <HeaderBox
           title="Welcome"
           type="greeting"
-          user={loggedIn.firstName || 'Guest'}
+          user={loggedIn.name || 'Guest'}
           subtext="Manage your account and transaction efficiently"
         />
         <BalanceBox
