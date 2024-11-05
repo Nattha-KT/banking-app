@@ -8,7 +8,7 @@ export const defaultAuthFormValue: Partial<AuthFormValues<'sign-up'>> = {
   password: '',
   firstName: '',
   lastName: '',
-  address1: '',
+  address: '',
   city: '',
   state: '',
   postalCode: '',

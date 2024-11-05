@@ -2,18 +2,49 @@
 import { ID } from 'node-appwrite';
 import { createAdminClient, createSessionClient } from '../server';
 import { cookies } from 'next/headers';
-import { parseStringify } from '../utils';
+import { extractCustomerIdFromUrl, parseStringify } from '../utils';
+import { createDwollaCustomer } from './dwolla.action';
+
+const {
+  APPWRITE_DATABASE_ID: DATABASE_ID,
+  APPWRITE_USER_COLLECTION_ID: USER_COLLECTION_ID,
+} = process.env;
 
 export async function signUp(userData: SignUpParams) {
   const { email, password, firstName, lastName } = userData;
-  try {
-    const { account } = await createAdminClient();
+  let newUserAccount;
 
-    const newUserAccount = await account.create(
+  try {
+    const { account, database } = await createAdminClient();
+
+    newUserAccount = await account.create(
       ID.unique(),
       email,
       password,
       `${firstName} ${lastName}`,
+    );
+
+    if (!newUserAccount) throw new Error('Error creating user');
+
+    const dwollaCustomerUrl = await createDwollaCustomer({
+      ...userData,
+      type: 'personal',
+    });
+
+    if (!dwollaCustomerUrl) throw new Error('Error creating Dwolla customer');
+
+    const dwollaCustomerId = extractCustomerIdFromUrl(dwollaCustomerUrl);
+
+    const newUser = await database.createDocument(
+      DATABASE_ID!,
+      USER_COLLECTION_ID!,
+      ID.unique(),
+      {
+        ...userData,
+        userId: newUserAccount.$id,
+        dwollaCustomerId,
+        dwollaCustomerUrl,
+      },
     );
     const session = await account.createEmailPasswordSession(email, password);
 
@@ -25,7 +56,7 @@ export async function signUp(userData: SignUpParams) {
         secure: true,
       });
     });
-    return parseStringify(newUserAccount);
+    return parseStringify(newUser);
   } catch (error) {
     console.error('Error', error);
   }

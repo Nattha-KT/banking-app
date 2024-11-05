@@ -7,7 +7,7 @@ import { useAuthHook } from '@/hooks';
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui';
-import { InputFormField } from '@/components/shared';
+import { InputFormField, PlaidLink } from '@/components/shared';
 import { AuthFormValues } from '@/schema';
 import { FieldPath } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
@@ -72,7 +72,7 @@ export default function AuthForm({ type }: { type: AuthFormType }) {
       </header>
       {user ? (
         <div className="flex flex-col gap-4">
-          {/* <PlaidLink user={user} variant="primary" /> */}
+          <PlaidLink user={user} variant="primary" />
         </div>
       ) : (
         <>
@@ -93,7 +93,7 @@ export default function AuthForm({ type }: { type: AuthFormType }) {
                     />
                   </div>
                   <InputFormField
-                    name="address1"
+                    name="address"
                     label="Address"
                     placeholder="Enter your specific address"
                   />
