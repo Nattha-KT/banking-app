@@ -1,12 +1,15 @@
 export function formatAmount(amount: number): string {
-  const formatter = new Intl.NumberFormat('th-TH', {
+  const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'THB',
+    currency: 'USD',
     minimumFractionDigits: 2,
   });
 
   return formatter.format(amount);
 }
+
+export const getEnvironmentVariable = (key: string): string =>
+  process.env[key] as string;
 
 export const parseStringify = (value: unknown) =>
   JSON.parse(JSON.stringify(value));

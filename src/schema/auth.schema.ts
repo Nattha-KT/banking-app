@@ -9,7 +9,7 @@ const baseAuthSchema = z.object({
 const signUpFields = z.object({
   firstName: z.string().min(3),
   lastName: z.string().min(3),
-  address: z.string().max(50),
+  address1: z.string().max(50),
   city: z.string().max(50),
   state: z.string().min(2).max(2),
   postalCode: z.string().min(3).max(6),

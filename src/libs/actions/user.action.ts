@@ -10,8 +10,8 @@ const {
   APPWRITE_USER_COLLECTION_ID: USER_COLLECTION_ID,
 } = process.env;
 
-export async function signUp(userData: SignUpParams) {
-  const { email, password, firstName, lastName } = userData;
+export async function signUp({ password, ...userData }: SignUpParams) {
+  const { email, firstName, lastName } = userData;
   let newUserAccount;
 
   try {

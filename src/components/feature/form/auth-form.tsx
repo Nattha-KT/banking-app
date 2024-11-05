@@ -34,7 +34,6 @@ export default function AuthForm({ type }: { type: AuthFormType }) {
           email: data.email,
           password: data.password,
         });
-
         if (response) router.push('/');
       }
     } catch (error) {
@@ -93,7 +92,7 @@ export default function AuthForm({ type }: { type: AuthFormType }) {
                     />
                   </div>
                   <InputFormField
-                    name="address"
+                    name="address1"
                     label="Address"
                     placeholder="Enter your specific address"
                   />
