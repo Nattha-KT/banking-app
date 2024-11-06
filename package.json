@@ -10,7 +10,7 @@
     "lint": "next lint",
     "prepare": "husky",
     "format-check": "prettier --check .",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\""
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml,json}\""
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
