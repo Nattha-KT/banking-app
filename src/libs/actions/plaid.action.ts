@@ -5,7 +5,7 @@ import {
   ProcessorTokenCreateRequestProcessorEnum,
   Products,
 } from 'plaid';
-import { plaidClient } from '../config/plaid';
+import { plaidClient } from '../config';
 import { encryptId, parseStringify } from '../utils';
 import { createBankAccount } from './bank.action';
 import { revalidatePath } from 'next/cache';

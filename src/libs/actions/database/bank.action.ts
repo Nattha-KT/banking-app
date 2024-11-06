@@ -1,8 +1,8 @@
 'use server';
 
+import { createAdminClient } from '@/libs/server';
+import { parseStringify } from '@/libs/utils';
 import { ID } from 'node-appwrite';
-import { createAdminClient } from '../server';
-import { parseStringify } from '../utils';
 
 const {
   APPWRITE_DATABASE_ID: DATABASE_ID,

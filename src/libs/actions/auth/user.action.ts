@@ -1,9 +1,9 @@
 'use server';
 import { ID } from 'node-appwrite';
-import { createAdminClient, createSessionClient } from '../server';
 import { cookies } from 'next/headers';
-import { extractCustomerIdFromUrl, parseStringify } from '../utils';
-import { createDwollaCustomer } from './dwolla.action';
+import { extractCustomerIdFromUrl, parseStringify } from '@/libs/utils';
+import { createDwollaCustomer } from '../dwolla.action';
+import { createAdminClient, createSessionClient } from '@/libs/server';
 
 const {
   APPWRITE_DATABASE_ID: DATABASE_ID,
