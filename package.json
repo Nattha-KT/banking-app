@@ -9,7 +9,7 @@
     "start": "next start -p 4000",
     "lint": "next lint",
     "prepare": "husky",
-    "check-format": "prettier --check .",
+    "format-check": "prettier --check .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\""
   },
   "lint-staged": {
