@@ -118,7 +118,7 @@
   }
 
   .sheet-content button {
-    @apply focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important;
+    @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
   }
 
   .text14_padding10 {
@@ -179,7 +179,7 @@
   }
 
   .home-content {
-    @apply no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
+    @apply no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 py-7 sm:px-8 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
   }
 
   .home-header {
@@ -224,7 +224,7 @@
 
   /* Right sidebar */
   .right-sidebar {
-    @apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[355px] xl:overflow-y-scroll !important;
+    @apply no-scrollbar hidden h-screen max-h-screen w-[355px] flex-col border-l border-gray-200 xl:flex xl:overflow-y-scroll !important;
   }
 
   .profile-banner {
@@ -236,7 +236,7 @@
   }
 
   .profile-img {
-    @apply flex-center absolute -top-8 size-24 rounded-full bg-gray-100 border-8 border-white p-2 shadow-profile;
+    @apply flex-center absolute -top-8 size-24 rounded-full border-8 border-white bg-gray-100 p-2 shadow-profile;
   }
 
   .profile-details {
@@ -304,16 +304,16 @@
 
   /* Bank Info */
   .bank-info {
-    @apply gap-[18px] flex p-4 transition-all border bg-blue-25 border-transparent;
+    @apply flex gap-[18px] border border-transparent bg-blue-25 p-4 transition-all;
   }
 
   /* Category Badge */
   .category-badge {
-    @apply flex-center truncate w-fit gap-1 rounded-2xl border-[1.5px] py-[2px] pl-1.5 pr-2;
+    @apply flex-center w-fit gap-1 truncate rounded-2xl border-[1.5px] py-[2px] pl-1.5 pr-2;
   }
 
   .banktab-item {
-    @apply gap-[18px] border-b-2 flex px-2 sm:px-4 py-2 transition-all;
+    @apply flex gap-[18px] border-b-2 px-2 py-2 transition-all sm:px-4;
   }
 
   /* Mobile nav */
@@ -322,7 +322,7 @@
   }
 
   .mobilenav-sheet_close {
-    @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-[90%];
+    @apply flex w-full max-w-[90%] items-center gap-3 rounded-lg p-4;
   }
 
   /* PlaidLink */
@@ -335,12 +335,12 @@
   }
 
   .plaidlink-default {
-    @apply flex !justify-start cursor-pointer gap-3 rounded-lg !bg-transparent flex-row;
+    @apply flex cursor-pointer flex-row !justify-start gap-3 rounded-lg !bg-transparent;
   }
 
   /* Auth */
   .auth-asset {
-    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
+    @apply sticky top-0 flex h-screen w-full items-center justify-end bg-sky-1 max-lg:hidden;
   }
 
   /* Auth Form */
@@ -395,7 +395,7 @@
 
   /* Root Layout */
   .navbar-root-layout {
-    @apply flex h-16 items-center justify-between p-5 sm:p-8 md:hidden rounded-2xl shadow-md bg-teal-300/30;
+    @apply flex h-16 items-center justify-between rounded-2xl bg-teal-300/30 p-5 shadow-md sm:p-8 md:hidden;
   }
 
   /* Bank Info */
@@ -425,7 +425,7 @@
   }
 
   .footer_image {
-    @apply relative size-5 max-xl:w-full max-xl:flex max-xl:justify-center max-xl:items-center;
+    @apply relative size-5 max-xl:flex max-xl:w-full max-xl:items-center max-xl:justify-center;
   }
 
   /* Sidebar */
@@ -434,14 +434,14 @@
   }
 
   .sidebar-logo {
-    @apply 2xl:text-[22px] text-[16px] font-bold text-teal-900 max-xl:hidden;
+    @apply text-[16px] font-bold text-teal-900 max-xl:hidden 2xl:text-[22px];
   }
 
   .sidebar-link {
-    @apply flex gap-3 items-center hover:scale-110 hover:bg-teal-100 py-1 md:p-3 2xl:p-4 rounded-lg justify-center xl:justify-start;
+    @apply flex items-center justify-center gap-3 rounded-lg py-1 hover:scale-110 hover:bg-teal-100 md:p-3 xl:justify-start 2xl:p-4;
   }
 
   .sidebar-label {
-    @apply 2xl:text-[16px] text-[12px] font-medium text-gray-600 max-xl:hidden;
+    @apply text-[12px] font-medium text-gray-600 max-xl:hidden 2xl:text-[16px];
   }
 }
