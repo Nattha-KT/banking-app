@@ -7,9 +7,9 @@ import {
 } from 'plaid';
 import { plaidClient } from '../config';
 import { encryptId, parseStringify } from '../utils';
-import { createBankAccount } from './bank.action';
 import { revalidatePath } from 'next/cache';
 import { addFundingSource } from './dwolla.action';
+import { createBankAccount } from './database';
 
 export const createLinkTokenPlaid = async (user: User) => {
   try {

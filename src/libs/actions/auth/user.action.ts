@@ -1,5 +1,5 @@
 'use server';
-import { ID } from 'node-appwrite';
+import { ID, Query } from 'node-appwrite';
 import { cookies } from 'next/headers';
 import { extractCustomerIdFromUrl, parseStringify } from '@/libs/utils';
 import { createDwollaCustomer } from '../dwolla.action';
@@ -76,9 +76,9 @@ export const signIn = async ({ email, password }: signInProps) => {
       });
     });
 
-    // const user = await getUserInfo({ userId: session.userId });
+    const user = await getUserInfo({ userId: session.userId });
 
-    return parseStringify(session);
+    return parseStringify(user);
   } catch (error) {
     console.error('Error', error);
   }
@@ -87,9 +87,13 @@ export const signIn = async ({ email, password }: signInProps) => {
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
-    const user = await account.get();
+    const result = await account.get();
+
+    const user = await getUserInfo({ userId: result.$id });
+
     return parseStringify(user);
-  } catch {
+  } catch (error) {
+    console.log(error);
     return null;
   }
 }
@@ -105,5 +109,21 @@ export const logoutAccount = async () => {
     await account.deleteSession('current');
   } catch {
     return null;
+  }
+};
+
+export const getUserInfo = async ({ userId }: getUserInfoProps) => {
+  try {
+    const { database } = await createAdminClient();
+
+    const user = await database.listDocuments(
+      DATABASE_ID!,
+      USER_COLLECTION_ID!,
+      [Query.equal('userId', [userId])],
+    );
+
+    return parseStringify(user.documents[0]);
+  } catch (error) {
+    console.log(error);
   }
 };

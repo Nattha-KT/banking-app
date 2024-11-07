@@ -6,7 +6,6 @@ import React from 'react';
 
 export default function FooterSide({ user, type = 'desktop' }: FooterProps) {
   const router = useRouter();
-  console.log(user);
 
   const handleLogOut = async () => {
     const loggedOut = await logoutAccount();
@@ -18,7 +17,7 @@ export default function FooterSide({ user, type = 'desktop' }: FooterProps) {
     <footer className="footer">
       <div className={type === 'mobile' ? 'footer_name-mobile' : 'footer_name'}>
         <p className="text-lg font-semibold capitalize text-gray-700">
-          {user.name[0]}
+          {user?.firstName[0]}
         </p>
       </div>
 
@@ -26,7 +25,7 @@ export default function FooterSide({ user, type = 'desktop' }: FooterProps) {
         className={type === 'mobile' ? 'footer_email-mobile' : 'footer_email'}
       >
         <h1 className="text-14 truncate font-semibold text-gray-700">
-          {user?.name}
+          {user?.firstName}
         </h1>
         <p className="text-14 truncate font-normal text-gray-500">
           {user?.email}
