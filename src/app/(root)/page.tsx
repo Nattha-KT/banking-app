@@ -3,6 +3,7 @@ import { BalanceBox } from '@/components/feature';
 import { getLoggedInUser } from '@/libs';
 
 export default async function HomePage() {
+  //  should be use Oauth with appwrite
   const loggedIn = await getLoggedInUser();
   if (!loggedIn) return null;
 

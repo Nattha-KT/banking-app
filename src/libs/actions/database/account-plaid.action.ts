@@ -1,3 +1,4 @@
+'use server';
 import { plaidClient } from '@/libs/config';
 import { getBanks } from './bank.action';
 import { parseStringify } from '@/libs/utils';
