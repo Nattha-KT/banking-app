@@ -1,11 +1,25 @@
-import { HeaderBox } from '@/components';
+import { HeaderBox, ProfileSide } from '@/components';
 import { BalanceBox } from '@/components/feature';
-import { getLoggedInUser } from '@/libs';
+import { getAccounts, getLoggedInUser } from '@/libs';
 
-export default async function HomePage() {
+export default async function HomePage(props: {
+  params: Params;
+  searchParams: SearchParams;
+}) {
+  const searchParams = await props.searchParams;
+
   //  should be use Oauth with appwrite
   const loggedIn = await getLoggedInUser();
   if (!loggedIn) return null;
+  const accounts = await getAccounts({
+    userId: loggedIn.$id,
+  });
+  console.log('searchParams:', searchParams);
+
+  if (!accounts) return;
+  const accountsData = accounts?.data;
+  // const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
+  // // const account = await getAccount({ appwriteItemId });
 
   return (
     <section className="home">
@@ -22,11 +36,11 @@ export default async function HomePage() {
           totalCurrentBalance={1250.12}
         />
       </div>
-      {/* <ProfileSide
+      <ProfileSide
         user={loggedIn}
-        transactions={[]}
-        banks={[{ currentBalance: 223.5 }, { currentBalance: 313.5 }]}
-      /> */}
+        transactions={accounts?.transaction}
+        banks={accountsData.slice(0, 2)}
+      />
     </section>
   );
 }

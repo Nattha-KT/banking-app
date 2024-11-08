@@ -1,10 +1,14 @@
 /* eslint-disable no-unused-vars */
 
-declare type SearchParamProps = {
-  params: { [key: string]: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+// declare type SearchParamProps = Promise<{
+//   params: { [key: string]: string };
+//   searchParams: { [key: string]: string | string[] | undefined };
+// }>;
 
+declare type Params = Promise<{ slug: string }>;
+declare type SearchParams = Promise<{
+  [key: string]: string | string[] | undefined;
+}>;
 // ========================================
 
 declare type SignUpParams = {

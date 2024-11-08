@@ -17,7 +17,7 @@ export default function ProfileSide({
         <div className="profile">
           <div className="profile-img">
             <span className="text-5xl font-bold capitalize text-teal-500">
-              {user?.name[0]}
+              {user?.firstName[0]}
             </span>
           </div>
 
