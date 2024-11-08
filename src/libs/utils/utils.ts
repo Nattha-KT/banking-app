@@ -1,3 +1,5 @@
+import queryString from 'query-string';
+
 export function formatAmount(amount: number): string {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -25,4 +27,24 @@ export function extractCustomerIdFromUrl(url: string) {
   const customerId = parts[parts.length - 1];
 
   return customerId;
+}
+
+interface UrlQueryParams {
+  params: string;
+  key: string;
+  value: string;
+}
+
+export function formUrlQuery({ params, key, value }: UrlQueryParams) {
+  const currentUrl = queryString.parse(params);
+
+  currentUrl[key] = value;
+
+  return queryString.stringifyUrl(
+    {
+      url: window.location.pathname,
+      query: currentUrl,
+    },
+    { skipNull: true },
+  );
 }

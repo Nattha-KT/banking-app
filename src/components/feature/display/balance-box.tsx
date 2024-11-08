@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedCounter, DoughnutChart } from '../shared/';
+import { AnimatedCounter, DoughnutChart } from '../../shared';
 
 export default function BalanceBox({
   accounts = [],
