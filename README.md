@@ -70,4 +70,4 @@ This project owes its development to open-source resources, including Next.js, T
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
