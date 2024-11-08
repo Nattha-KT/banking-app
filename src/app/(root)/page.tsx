@@ -1,6 +1,6 @@
 import { HeaderBox, ProfileSide } from '@/components';
 import { BalanceBox } from '@/components/feature';
-import { getAccounts, getLoggedInUser } from '@/libs';
+import { getAccount, getAccounts, getLoggedInUser } from '@/libs';
 
 export default async function HomePage(props: {
   params: Params;
@@ -18,23 +18,30 @@ export default async function HomePage(props: {
 
   if (!accounts) return;
   const accountsData = accounts?.data;
-  // const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
-  // // const account = await getAccount({ appwriteItemId });
+  //bankId
+  const appwriteItemId =
+    (searchParams?.id as string) || accountsData[0]?.appwriteItemId;
+  const account = await getAccount({ appwriteItemId });
+  console.log({
+    account,
+  });
 
   return (
     <section className="home">
       <div className="home-content">
-        <HeaderBox
-          title="Welcome"
-          type="greeting"
-          user={loggedIn.name || 'Guest'}
-          subtext="Manage your account and transaction efficiently"
-        />
-        <BalanceBox
-          accounts={[]}
-          totalBanks={1}
-          totalCurrentBalance={1250.12}
-        />
+        <header className="home-header">
+          <HeaderBox
+            title="Welcome"
+            type="greeting"
+            user={loggedIn?.firstName || 'Guest'}
+            subtext="Manage your account and transaction efficiently"
+          />
+          <BalanceBox
+            accounts={accountsData}
+            totalBanks={accounts.totalBanks}
+            totalCurrentBalance={accounts?.totalCurrentBalance}
+          />
+        </header>
       </div>
       <ProfileSide
         user={loggedIn}

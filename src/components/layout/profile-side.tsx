@@ -22,7 +22,9 @@ export default function ProfileSide({
           </div>
 
           <div className="profile-details">
-            <h1 className="profile-name">{user.name}</h1>
+            <h1 className="profile-name">
+              {user.firstName} {user.lastName}
+            </h1>
             <p className="profile-email">{user.email}</p>
           </div>
         </div>
