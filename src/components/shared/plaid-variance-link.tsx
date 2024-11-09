@@ -6,7 +6,13 @@ import {
   usePlaidLink,
 } from 'react-plaid-link';
 import Image from 'next/image';
-import { Button } from '../ui';
+import {
+  Button,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '../ui';
 import { useRouter } from 'next/navigation';
 import { createLinkTokenPlaid, exchangePublicToken } from '@/libs';
 
@@ -70,21 +76,35 @@ export default function PlaidLink({ user, variant }: PlaidLinkProps) {
           </p>
         </Button>
       ) : (
-        <Button
-          onClick={() => open()}
-          className="plaidlink-default hover:bg-teal-100"
-        >
-          <Image
-            src="/icons/connect-bank.svg"
-            className="brightness-[1] invert-0"
-            alt="connect bank"
-            width={24}
-            height={24}
-          />
-          <p className="text-[12px] font-semibold text-teal-300 max-xl:hidden">
-            Connect bank
-          </p>
-        </Button>
+        <TooltipProvider delayDuration={300}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                onClick={() => open()}
+                className="plaidlink-default hover:bg-teal-100"
+              >
+                <Image
+                  src="/icons/connect-bank.svg"
+                  className="brightness-[1] invert-0"
+                  alt="connect bank"
+                  width={24}
+                  height={24}
+                />
+                <p className="text-[12px] font-semibold text-teal-300 max-xl:hidden">
+                  Connect bank
+                </p>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent
+              sideOffset={10}
+              side="right"
+              align="center"
+              className="hidden border border-teal-200 bg-teal-50 text-teal-700 max-xl:block"
+            >
+              Connect bank
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       )}
     </>
   );

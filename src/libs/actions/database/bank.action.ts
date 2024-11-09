@@ -17,15 +17,6 @@ export const createBankAccount = async ({
   fundingSourceUrl,
   shareableId,
 }: createBankAccountProps) => {
-  console.log({
-    userId,
-    bankId,
-    accountId,
-    accessToken,
-    fundingSourceUrl,
-    shareableId,
-  });
-
   try {
     const { database } = await createAdminClient();
 
@@ -45,7 +36,7 @@ export const createBankAccount = async ({
 
     return parseStringify(bankAccount);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

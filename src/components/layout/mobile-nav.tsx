@@ -11,12 +11,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../ui';
+import FooterSide from './footer-side';
 // import Footer from './Footer';
 
 export default function MobileNav({ user }: MobileNavProps) {
   const pathname = usePathname();
-  console.log(user);
-
   return (
     <section className="w-fulll max-w-[264px]">
       <Sheet>
@@ -95,7 +94,7 @@ export default function MobileNav({ user }: MobileNavProps) {
               </nav>
             </SheetClose>
 
-            {/* <Footer user={user} type="mobile" /> */}
+            <FooterSide user={user} type="mobile" />
           </div>
         </SheetContent>
       </Sheet>

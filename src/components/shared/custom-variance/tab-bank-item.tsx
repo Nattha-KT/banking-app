@@ -25,12 +25,12 @@ export default function TabBankItem({
     <div
       onClick={handleBankChange}
       className={cn(`banktab-item`, {
-        'border-blue-600': isActive,
+        'border-emerald-300': isActive,
       })}
     >
       <p
         className={cn(`text-16 line-clamp-1 flex-1 font-medium text-gray-500`, {
-          'text-blue-600': isActive,
+          'text-emerald-400': isActive,
         })}
       >
         {account.name}
