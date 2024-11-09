@@ -1,3 +1,4 @@
+import { ButtonCopy } from '@/components/shared';
 import { formatAmount } from '@/libs';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,10 +9,13 @@ export default function BankCard({
   userName,
   showBalance = true,
 }: CreditCardProps) {
-  console.log('BankCard:' + account + '' + showBalance);
+  console.log('Bankcard: ', account);
   return (
     <div className="flex flex-col transition-all duration-200 ease-linear hover:-translate-y-1">
-      <Link href={`/`} className="bank-card">
+      <Link
+        href={`/transaction/?id-=${account.appwriteItemId}`}
+        className="bank-card"
+      >
         <div className="bank-card_content">
           <div>
             <h1 className="text-16 font-semibold text-white">{account.name}</h1>
@@ -54,7 +58,7 @@ export default function BankCard({
         />
       </Link>
 
-      {/* {showBalance && <Copy title={account?.sharaebleId} />} */}
+      {showBalance && <ButtonCopy title={account?.shareableId} />}
     </div>
   );
 }
