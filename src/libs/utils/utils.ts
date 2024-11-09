@@ -48,3 +48,15 @@ export function formUrlQuery({ params, key, value }: UrlQueryParams) {
     { skipNull: true },
   );
 }
+
+export const removeSpecialCharacters = (value: string) => {
+  return value.replace(/[^\w\s]/gi, '');
+};
+
+export const getTransactionStatus = (date: Date) => {
+  const today = new Date();
+  const twoDaysAgo = new Date(today);
+  twoDaysAgo.setDate(today.getDate() - 2);
+
+  return date > twoDaysAgo ? 'Processing' : 'Success';
+};

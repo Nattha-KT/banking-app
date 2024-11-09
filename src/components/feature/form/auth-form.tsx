@@ -53,7 +53,7 @@ export default function AuthForm({ type }: { type: AuthFormType }) {
             height={80}
             alt="Horizon logo"
           />
-          <h1 className="text-[34px] font-bold text-bankGradient-200 2xl:text-[36px]">
+          <h1 className="font-ibm-plex-serif text-[34px] font-bold text-bankGradient-200 2xl:text-[36px]">
             BANK APP
           </h1>
         </Link>

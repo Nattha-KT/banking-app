@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui';
 
 import Link from 'next/link';
 import BankInfo from './bank-info';
+import TransactionsTable from './transactions-table';
 // import { BankTabItem } from './BankTabItem';
 // import BankInfo from './BankInfo';
 // import TransactionsTable from './TransactionsTable';
@@ -24,7 +25,6 @@ export default function RecentTransactions({
     indexOfFirstTransaction,
     indexOfLastTransaction,
   );
-  console.log(currentTransactions);
 
   return (
     <section className="recent-transactions">
@@ -63,7 +63,7 @@ export default function RecentTransactions({
               type="full"
             />
 
-            {/* <TransactionsTable transactions={currentTransactions} /> */}
+            <TransactionsTable transactions={currentTransactions} />
 
             {totalPages > 1 && (
               <div className="my-4 w-full">

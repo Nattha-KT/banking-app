@@ -434,7 +434,7 @@
   }
 
   .sidebar-logo {
-    @apply text-[16px] font-bold text-teal-900 max-xl:hidden 2xl:text-[22px];
+    @apply font-ibm-plex-serif text-[16px] font-bold text-teal-500 max-xl:hidden 2xl:text-[22px];
   }
 
   .sidebar-link {
