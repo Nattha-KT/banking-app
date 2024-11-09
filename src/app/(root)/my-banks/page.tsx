@@ -2,10 +2,11 @@ import { BankCard, HeaderBox } from '@/components';
 import { getAccounts, getLoggedInUser } from '@/libs';
 
 export default async function MyBanksPage() {
-  const loggedIn = await getLoggedInUser();
-  const accounts = await getAccounts({
-    userId: loggedIn.$id,
-  });
+  const [loggedIn, accounts] = await Promise.all([
+    getLoggedInUser(),
+    getAccounts({ userId: (await getLoggedInUser())?.$id }),
+  ]);
+
   return (
     <section role="display banks page" className="flex">
       <div className="my-banks">

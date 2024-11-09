@@ -12,19 +12,22 @@ export default async function HomePage(props: {
 }) {
   const searchParams = await props.searchParams;
   const currentPage = Number(searchParams?.page as string) || 1;
-  //  should be use Oauth with appwrite
-  const loggedIn = await getLoggedInUser();
-  if (!loggedIn) return null;
-  const accounts = await getAccounts({
-    userId: loggedIn.$id,
-  });
 
-  if (!accounts) return;
-  const accountsData = accounts?.data;
+  // Should be use Oauth with appwrite
+  const [loggedIn, accounts] = await Promise.all([
+    getLoggedInUser(),
+    getAccounts({ userId: (await getLoggedInUser())?.$id }),
+  ]);
+
+  if (!loggedIn || !accounts?.data.length) return null;
+
+  const accountsData = accounts.data;
 
   const appwriteItemId =
     (searchParams?.id as string) || accountsData[0]?.appwriteItemId;
+
   const account = await getAccount({ appwriteItemId });
+  if (!account) return null;
 
   return (
     <section className="home">
