@@ -2,10 +2,9 @@ import { BankCard, HeaderBox } from '@/components';
 import { getAccounts, getLoggedInUser } from '@/libs';
 
 export default async function MyBanksPage() {
-  const [loggedIn, accounts] = await Promise.all([
-    getLoggedInUser(),
-    getAccounts({ userId: (await getLoggedInUser())?.$id }),
-  ]);
+  // Should be use Oauth with appwrite
+  const loggedIn = await getLoggedInUser();
+  const accounts = await getAccounts({ userId: loggedIn?.$id });
 
   return (
     <section role="display banks page" className="flex">

@@ -14,10 +14,8 @@ export default async function HomePage(props: {
   const currentPage = Number(searchParams?.page as string) || 1;
 
   // Should be use Oauth with appwrite
-  const [loggedIn, accounts] = await Promise.all([
-    getLoggedInUser(),
-    getAccounts({ userId: (await getLoggedInUser())?.$id }),
-  ]);
+  const loggedIn = await getLoggedInUser();
+  const accounts = await getAccounts({ userId: loggedIn?.$id });
 
   if (!loggedIn || !accounts?.data.length) return null;
 
