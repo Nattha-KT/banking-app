@@ -5,6 +5,7 @@ import {
   ProfileSide,
 } from '@/components';
 import { getAccount, getAccounts, getLoggedInUser } from '@/libs';
+import { cookies } from 'next/headers';
 
 export default async function HomePage(props: {
   params: Params;
@@ -12,12 +13,14 @@ export default async function HomePage(props: {
 }) {
   const searchParams = await props.searchParams;
   const currentPage = Number(searchParams?.page as string) || 1;
+  const sessionValue = (await cookies()).get('appwrite-session')?.value || '';
 
   // Should be use Oauth with appwrite
-  const loggedIn = await getLoggedInUser();
+  const loggedIn = await getLoggedInUser(sessionValue);
+  if (!loggedIn) return;
   const accounts = await getAccounts({ userId: loggedIn?.$id });
 
-  if (!loggedIn || !accounts?.data.length) return null;
+  if (!accounts?.data.length) return null;
 
   const accountsData = accounts.data;
 

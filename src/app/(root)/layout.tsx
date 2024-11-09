@@ -1,5 +1,6 @@
 import { MobileNav, Sidebar } from '@/components';
 import { getLoggedInUser } from '@/libs';
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -9,7 +10,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loggedIn = await getLoggedInUser();
+  const sessionValue = (await cookies()).get('appwrite-session')?.value || '';
+  const loggedIn = await getLoggedInUser(sessionValue);
 
   if (!loggedIn) redirect('/sign-in');
   return (

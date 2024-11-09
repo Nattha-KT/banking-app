@@ -1,12 +1,14 @@
 import { HeaderBox } from '@/components';
 import { formatAmount, getAccount, getAccounts, getLoggedInUser } from '@/libs';
+import { cookies } from 'next/headers';
 
 export default async function TransactionPage(props: {
   searchParams: SearchParams;
 }) {
   const searchParams = await props.searchParams;
   // const currentPage = Number(searchParams?.page as string) || 1;
-  const loggedIn = await getLoggedInUser();
+  const sessionValue = (await cookies()).get('appwrite-session')?.value || '';
+  const loggedIn = await getLoggedInUser(sessionValue);
   const accounts = await getAccounts({
     userId: loggedIn.$id,
   });

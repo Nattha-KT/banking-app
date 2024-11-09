@@ -84,9 +84,13 @@ export const signIn = async ({ email, password }: signInProps) => {
   }
 };
 
-export async function getLoggedInUser() {
+export async function getLoggedInUser(sessionValue: string) {
   try {
-    const { account } = await createSessionClient();
+    const { account } = await createSessionClient(sessionValue);
+
+    if (!sessionValue) {
+      throw new Error('No session');
+    }
     const result = await account.get();
 
     return result

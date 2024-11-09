@@ -9,7 +9,6 @@ export default function BankCard({
   userName,
   showBalance = true,
 }: CreditCardProps) {
-  console.log('Bankcard: ', account);
   return (
     <div className="flex flex-col transition-all duration-200 ease-linear hover:-translate-y-1">
       <Link

@@ -9,7 +9,6 @@ export default function FooterSide({ user, type = 'desktop' }: FooterProps) {
 
   const handleLogOut = async () => {
     const loggedOut = await logoutAccount();
-
     if (loggedOut) router.push('/sign-in');
   };
 

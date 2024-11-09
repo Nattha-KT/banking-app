@@ -1,9 +1,12 @@
 import { BankCard, HeaderBox } from '@/components';
 import { getAccounts, getLoggedInUser } from '@/libs';
+import { cookies } from 'next/headers';
 
 export default async function MyBanksPage() {
   // Should be use Oauth with appwrite
-  const loggedIn = await getLoggedInUser();
+  const sessionValue = (await cookies()).get('appwrite-session')?.value || '';
+
+  const loggedIn = await getLoggedInUser(sessionValue);
   const accounts = await getAccounts({ userId: loggedIn?.$id });
 
   return (
