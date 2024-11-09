@@ -270,7 +270,7 @@
   }
 
   .transactions-account {
-    @apply flex flex-col justify-between gap-4 rounded-lg border-y bg-blue-600 px-4 py-5 md:flex-row;
+    @apply flex flex-col justify-between gap-4 rounded-lg border-y bg-bankGradient-500 px-4 py-5 md:flex-row;
   }
 
   .transactions-account-balance {
@@ -335,7 +335,7 @@
   }
 
   .plaidlink-default {
-    @apply flex cursor-pointer flex-row !justify-start gap-3 rounded-lg !bg-transparent;
+    @apply flex cursor-pointer flex-row !justify-start gap-3 rounded-lg bg-teal-50 outline outline-2 outline-offset-2 outline-teal-300;
   }
 
   /* Auth */
