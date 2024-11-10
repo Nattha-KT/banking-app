@@ -1,4 +1,4 @@
-import { HeaderBox, TransactionsTable } from '@/components';
+import { HeaderBox, Pagination, TransactionsTable } from '@/components';
 import { formatAmount, getAccount, getAccounts, getLoggedInUser } from '@/libs';
 import { cookies } from 'next/headers';
 
@@ -64,7 +64,7 @@ export default async function TransactionPage(props: {
           <TransactionsTable transactions={currentTransactions} />
           {totalPages > 1 && (
             <div className="my-4 w-full">
-              {/* <Pagination totalPages={totalPages} page={currentPage} /> */}
+              <Pagination totalPages={totalPages} page={currentPage} />
             </div>
           )}
         </section>
