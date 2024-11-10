@@ -1,5 +1,5 @@
 export const topCategoryStyles = {
-  'Food and Drink': {
+  'in store': {
     bg: 'bg-blue-25',
     circleBg: 'bg-blue-100',
     text: {
@@ -12,7 +12,7 @@ export const topCategoryStyles = {
     },
     icon: '/icons/monitor.svg',
   },
-  Travel: {
+  online: {
     bg: 'bg-success-25',
     circleBg: 'bg-success-100',
     text: {
@@ -25,7 +25,7 @@ export const topCategoryStyles = {
     },
     icon: '/icons/coins.svg',
   },
-  default: {
+  other: {
     bg: 'bg-pink-25',
     circleBg: 'bg-pink-100',
     text: {

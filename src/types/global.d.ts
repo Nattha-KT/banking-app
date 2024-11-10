@@ -96,6 +96,13 @@ declare type Bank = {
   shareableId: string;
 };
 
+declare type typePaymentChanelStyle =
+  | 'in store'
+  | 'online'
+  | 'other'
+  | null
+  | undefined;
+
 declare type AccountTypes =
   | 'depository'
   | 'credit'

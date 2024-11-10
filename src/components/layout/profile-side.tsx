@@ -1,18 +1,17 @@
-// import { countTransactionCategories } from '@/libs';
 import Link from 'next/link';
 import { BankCard } from '../feature';
-// import Category from './Category';
+import { Category } from '../shared';
+import { countTransactionCategories } from '@/libs';
 
 export default function ProfileSide({
   user,
   transactions,
   banks,
 }: RightSidebarProps) {
-  //   const categories: CategoryCount[] = countTransactionCategories(transactions);
-  console.log(transactions);
+  const categories: CategoryCount[] = countTransactionCategories(transactions);
   return (
     <aside className="right-sidebar">
-      <section className="flex flex-col pb-8">
+      <section className="flex flex-col pb-4">
         <div className="profile-banner" />
         <div className="profile">
           <div className="profile-img">
@@ -66,13 +65,13 @@ export default function ProfileSide({
 
         <div className="mt-10 flex flex-1 flex-col gap-6">
           <h2 className="text-[16px] font-semibold text-teal-950">
-            Top categories
+            Top Payment Chanel
           </h2>
 
           <div className="space-y-5">
-            {/* {categories.map((category, index) => (
+            {categories.map((category) => (
               <Category key={category.name} category={category} />
-            ))} */}
+            ))}
           </div>
         </div>
       </section>

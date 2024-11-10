@@ -395,7 +395,7 @@
 
   /* Root Layout */
   .navbar-root-layout {
-    @apply flex h-16 items-center justify-between rounded-2xl bg-teal-300/30 p-5 shadow-md sm:p-8 md:hidden;
+    @apply flex h-16 items-center justify-between rounded-2xl p-5 shadow-md sm:p-8 md:hidden;
   }
 
   /* Bank Info */
@@ -434,7 +434,7 @@
   }
 
   .sidebar-logo {
-    @apply font-ibm-plex-serif text-[16px] font-bold text-teal-500 max-xl:hidden 2xl:text-[22px];
+    @apply text-[16px] font-bold text-slate-700 max-xl:hidden 2xl:text-[22px];
   }
 
   .sidebar-link {

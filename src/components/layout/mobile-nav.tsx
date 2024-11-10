@@ -44,7 +44,7 @@ export default function MobileNav({ user }: MobileNavProps) {
                 height={50}
                 alt="Horizon logo"
               />
-              <h1 className="text-[20px] font-bold text-gray-700 2xl:text-[26px]">
+              <h1 className="text-[20px] font-bold text-slate-700 2xl:text-[26px]">
                 BANK APP
               </h1>
             </Link>

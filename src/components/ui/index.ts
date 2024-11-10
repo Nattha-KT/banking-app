@@ -9,3 +9,4 @@ export * from './tooltip';
 export * from './select';
 export * from './tooltip';
 export * from './textarea';
+export * from './progress';

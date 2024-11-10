@@ -7,3 +7,4 @@ export { default as Pagination } from './pagination';
 export * from './form-field';
 export * from './custom-variance';
 export * from './status-badge';
+export * from './category';

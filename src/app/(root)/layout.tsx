@@ -30,7 +30,7 @@ export default async function RootLayout({
               height={45}
               alt="logo"
             />
-            <h1 className="text-[20px] font-bold text-teal-700 2xl:text-[26px]">
+            <h1 className="text-[20px] font-bold text-slate-700 2xl:text-[26px]">
               BANK APP
             </h1>
           </Link>

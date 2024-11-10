@@ -55,7 +55,7 @@ export default async function HomePage(props: {
       </div>
       <ProfileSide
         user={loggedIn}
-        transactions={accounts?.transaction}
+        transactions={account?.transactions}
         banks={accountsData.slice(0, 2)}
       />
     </section>

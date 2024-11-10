@@ -1,4 +1,3 @@
-'use client';
 import { Pagination, TabBankItem } from '@/components/shared';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui';
 
