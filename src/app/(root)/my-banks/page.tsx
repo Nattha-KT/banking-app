@@ -16,7 +16,6 @@ export default async function MyBanksPage() {
           title="My Bank Accounts"
           subtext="Effortlessly manage your banking activites."
         />
-
         <div className="space-y-4">
           <h2 className="header-2">All Your cards🪙</h2>
           <div className="flex flex-wrap gap-6">

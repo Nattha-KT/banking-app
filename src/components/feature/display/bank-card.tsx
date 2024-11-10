@@ -10,7 +10,10 @@ export default function BankCard({
   showBalance = true,
 }: CreditCardProps) {
   return (
-    <div className="flex flex-col transition-all duration-200 ease-linear hover:-translate-y-1">
+    <div
+      key={account.id}
+      className="flex flex-col transition-all duration-200 ease-linear hover:-translate-y-1"
+    >
       <Link
         href={`/transaction/?id-=${account.appwriteItemId}`}
         className="bank-card"

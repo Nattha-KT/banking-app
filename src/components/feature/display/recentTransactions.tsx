@@ -1,13 +1,10 @@
-import { TabBankItem } from '@/components/shared';
+'use client';
+import { Pagination, TabBankItem } from '@/components/shared';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui';
 
 import Link from 'next/link';
 import BankInfo from './bank-info';
 import TransactionsTable from './transactions-table';
-// import { BankTabItem } from './BankTabItem';
-// import BankInfo from './BankInfo';
-// import TransactionsTable from './TransactionsTable';
-// import { Pagination } from './Pagination';
 
 export default function RecentTransactions({
   accounts,
@@ -17,7 +14,6 @@ export default function RecentTransactions({
 }: RecentTransactionsProps) {
   const rowsPerPage = 10;
   const totalPages = Math.ceil(transactions.length / rowsPerPage);
-
   const indexOfLastTransaction = page * rowsPerPage;
   const indexOfFirstTransaction = indexOfLastTransaction - rowsPerPage;
 
@@ -41,11 +37,7 @@ export default function RecentTransactions({
         <TabsList className="recent-transactions-tablist bg-white">
           {accounts.map((account: Account) => (
             <TabsTrigger key={account.id} value={account.appwriteItemId}>
-              <TabBankItem
-                key={account.id}
-                account={account}
-                // appwriteItemId={appwriteItemId}
-              />
+              <TabBankItem key={account.id} account={account} />
             </TabsTrigger>
           ))}
         </TabsList>
@@ -66,7 +58,7 @@ export default function RecentTransactions({
 
             {totalPages > 1 && (
               <div className="my-4 w-full">
-                {/* <Pagination totalPages={totalPages} page={page} /> */}
+                <Pagination totalPages={totalPages} page={page} />
               </div>
             )}
           </TabsContent>
