@@ -1,4 +1,4 @@
-import { HeaderBox } from '@/components';
+import { HeaderBox, TransactionsTable } from '@/components';
 import { formatAmount, getAccount, getAccounts, getLoggedInUser } from '@/libs';
 import { cookies } from 'next/headers';
 
@@ -6,7 +6,7 @@ export default async function TransactionPage(props: {
   searchParams: SearchParams;
 }) {
   const searchParams = await props.searchParams;
-  // const currentPage = Number(searchParams?.page as string) || 1;
+  const currentPage = Number(searchParams?.page as string) || 1;
   const sessionValue = (await cookies()).get('appwrite-session')?.value || '';
   const loggedIn = await getLoggedInUser(sessionValue);
   const accounts = await getAccounts({
@@ -21,16 +21,16 @@ export default async function TransactionPage(props: {
 
   const account = await getAccount({ appwriteItemId });
 
-  // const rowsPerPage = 10;
-  // const totalPages = Math.ceil(account?.transactions.length / rowsPerPage);
+  const rowsPerPage = 10;
+  const totalPages = Math.ceil(account?.transactions.length / rowsPerPage);
 
-  // const indexOfLastTransaction = currentPage * rowsPerPage;
-  // const indexOfFirstTransaction = indexOfLastTransaction - rowsPerPage;
+  const indexOfLastTransaction = currentPage * rowsPerPage;
+  const indexOfFirstTransaction = indexOfLastTransaction - rowsPerPage;
 
-  // const currentTransactions = account?.transactions.slice(
-  //   indexOfFirstTransaction,
-  //   indexOfLastTransaction,
-  // );
+  const currentTransactions = account?.transactions.slice(
+    indexOfFirstTransaction,
+    indexOfLastTransaction,
+  );
   return (
     <div className="transactions">
       <div className="transactions-header">
@@ -60,14 +60,14 @@ export default async function TransactionPage(props: {
           </div>
         </div>
 
-        {/* <section className="flex w-full flex-col gap-6">
+        <section className="flex w-full flex-col gap-6">
           <TransactionsTable transactions={currentTransactions} />
           {totalPages > 1 && (
             <div className="my-4 w-full">
-              <Pagination totalPages={totalPages} page={currentPage} />
+              {/* <Pagination totalPages={totalPages} page={currentPage} /> */}
             </div>
           )}
-        </section> */}
+        </section>
       </div>
     </div>
   );

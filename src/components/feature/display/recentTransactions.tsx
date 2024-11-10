@@ -25,7 +25,6 @@ export default function RecentTransactions({
     indexOfFirstTransaction,
     indexOfLastTransaction,
   );
-
   return (
     <section className="recent-transactions">
       <header className="flex items-center justify-between">

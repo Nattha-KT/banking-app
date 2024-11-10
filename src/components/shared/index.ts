@@ -5,3 +5,4 @@ export { default as PlaidLink } from './plaid-variance-link';
 
 export * from './form-field';
 export * from './custom-variance';
+export * from './status-badge';
