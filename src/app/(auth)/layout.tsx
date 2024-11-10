@@ -11,11 +11,11 @@ export default async function RootLayout({
       <div className="auth-asset">
         <div>
           <Image
-            src="/icons/auth-image.svg"
+            src="/images/auth-background-2.png"
             alt="Auth image"
-            width={500}
-            height={500}
-            className="rounded-l-xl object-contain"
+            width={900}
+            height={900}
+            className="rounded-l-xl object-contain outline outline-4 outline-offset-8 outline-bankGradient-500"
           />
         </div>
       </div>
