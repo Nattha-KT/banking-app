@@ -29,6 +29,10 @@ export function extractCustomerIdFromUrl(url: string) {
   return customerId;
 }
 
+export function decryptId(id: string) {
+  return atob(id);
+}
+
 interface UrlQueryParams {
   params: string;
   key: string;
