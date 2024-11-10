@@ -4,3 +4,4 @@ export { default as RecentTransactions } from './recentTransactions';
 export { default as BankInfo } from './bank-info';
 export { default as TransactionsTable } from './transactions-table';
 export { default as BankDropdown } from './bank-dropdown';
+export { default as AnalystBox } from './analyst-box';

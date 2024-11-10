@@ -3,6 +3,7 @@ import {
   BalanceBox,
   RecentTransactions,
   ProfileSide,
+  AnalystBox,
 } from '@/components';
 import { getAccount, getAccounts, getLoggedInUser } from '@/libs';
 import { cookies } from 'next/headers';
@@ -41,6 +42,11 @@ export default async function HomePage(props: {
             subtext="Manage your account and transaction efficiently"
           />
           <BalanceBox
+            accounts={accountsData}
+            totalBanks={accounts.totalBanks}
+            totalCurrentBalance={accounts?.totalCurrentBalance}
+          />
+          <AnalystBox
             accounts={accountsData}
             totalBanks={accounts.totalBanks}
             totalCurrentBalance={accounts?.totalCurrentBalance}
