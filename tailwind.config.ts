@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 import taiwindAnimate from 'tailwindcss-animate';
 const config: Config = {
+  mode: 'jit',
   darkMode: ['class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
