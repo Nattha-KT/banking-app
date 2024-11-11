@@ -40,11 +40,7 @@ This project was inspired by robust SaaS architecture principles and the power o
 
 With a focus on responsiveness, reusability, and clean architecture, this project benefits from insights into designing scalable, high-performing applications for the finance industry.
 
-For those who are interested in deepening their knowledge, we recommend checking out the tutorials on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> on YouTube. They provide great visual tutorials for beginners and advanced learners alike.
-
-Here’s a useful video to get started:
-
-<a href="https://youtu.be/PuOVqP_cjkE?feature=shared" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
+For those who are interested in deepening their knowledge, I recommend checking out the tutorials on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> on YouTube. They provide great visual tutorials for beginners and advanced learners alike.
 
 ## 🛠️ Installation & Setup
 
